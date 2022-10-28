@@ -29,28 +29,3 @@ variable "subscriptionId" {
     description = "Define the subscription to allocate resources"
     type = string
 }
-
-variable "thanosNamespace" {
-    description = "Namespace that Thanos is deployed"
-    type = string
-}
-
-variable "thanosSecretName" {
-    description = "Name of the secret to host ObjectStore secret"
-    type = string
-}
-
-variable "thanosStorageAccount" {
-    description = "Storage account to host Thanos data"
-    type = string
-}
-
-variable "thanosStorageContainer" {
-    description = "Storage container to host data"   
-    type = string
-}
-
-variable "thanosStorageKey" {
-    description = "Storage key to connect on blob storage"
-    type = string
-}

@@ -44,11 +44,6 @@ module "aks" {
     location               = var.region
     resourceGroup          = "rg_${var.env}"
     subscriptionId         = var.subscriptionId
-    thanosNamespace        = var.thanosNamespace
-    thanosSecretName       = var.thanosSecretName
-    thanosStorageAccount   = "thanosstorage${var.env}"
-    thanosStorageContainer = var.thanosContainerName
-    thanosStorageKey       = module.thanosStorage.objectStoreKey 
     
     depends_on = [
         module.thanosStorage
@@ -71,6 +66,7 @@ module "argocd" {
     env                     = var.env
     kubeconfigFilename      = var.kubeconfigFilename
     kubeconfigRaw           = module.aks.kubeconfig
+    repos                   = var.repos
 
     depends_on = [
         module.aks
@@ -87,6 +83,11 @@ module "apps" {
 
     aks = var.aks
     env = var.env
+
+    thanosSecretName       = var.thanosSecretName
+    thanosStorageAccount   = "thanosstorage${var.env}"
+    thanosStorageContainer = var.thanosContainerName
+    thanosStorageKey       = module.thanosStorage.objectStoreKey 
 
     depends_on = [
         module.argocd

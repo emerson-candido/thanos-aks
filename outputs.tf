@@ -27,9 +27,3 @@ output "aksClusterCaCertificate" {
     value = module.aks.clusterCaCertificate
     sensitive = true
 }
-
-output "objectStoreKey" {
-    description = "Credentials required to Thanos connect to blob Storage account"
-    value = module.thanosStorage.objectStoreKey
-    sensitive = true
-}

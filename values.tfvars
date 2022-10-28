@@ -19,6 +19,13 @@ aks = {
     }
 }
 
+repos = {
+    "thanos-aks" = {
+        type = "git"
+        url = "https://github.com/emerson-candido/thanos-aks"
+    }
+}
+
 env                 = "thanos"
 region              = "germanywestcentral"
 subscriptionId      = "e8c963df-4fec-46aa-b523-08eeaf964bd6"

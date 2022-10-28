@@ -19,6 +19,11 @@ variable "region" {
     type = string
 }
 
+variable "repos" {
+    description = "List of repositories to add in ArgoCD"
+    type = map
+}
+
 variable "subscriptionId" {
     description = "ID of the subscription to create the resources"
     type = string

@@ -61,3 +61,8 @@ variable "namespace" {
     description = "Namespace to deploy ArgoCD"
     type        = string
 }
+
+variable "repos" {
+    description = "List of repos to add in ArgoCD"
+    type = map
+}

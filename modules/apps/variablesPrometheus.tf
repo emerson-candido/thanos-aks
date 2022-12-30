@@ -5,7 +5,7 @@ variable "prometheusHelmChart" {
 }
 
 variable "prometheusHelmChartName" {
-    default     = "prometheus-stack"
+    default     = "kube-prometheus-stack"
     description = "Name of the helm deployment"
     type        = string
 }
@@ -26,4 +26,22 @@ variable "prometheusNamespace" {
     default     = "monitoring"
     description = "Namespace to deploy Ingress Nginx"
     type        = string
+}
+
+variable "thanosObjectStorageConfigKey" {
+    default = "thanos.yaml"
+    description = "Name of the file that contains storage account settings for Thanos Sidecar"
+    type = string
+}
+
+variable "thanosObjectStorageConfigName" {
+    default = "thanos-objectstore"
+    description = "Name of the secret that contains storage settings for Thanos Sidecar"
+    type = string
+}
+
+variable "thanosServiceMonitorInterval" {
+    default = "5s"
+    description = "Time to sync data in Thanos sidecar"
+    type = string
 }

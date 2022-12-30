@@ -20,6 +20,16 @@ resource "kubernetes_manifest" "prometheus" {
                     parameters:
                     - name: "grafana.enabled"
                       value: "${each.value.grafana}"
+                    - name: "prometheus.prometheusSpec.thanos.objectStorageConfig.key"
+                      value: "${var.thanosObjectStorageConfigKey}"
+                    - name: "prometheus.prometheusSpec.thanos.objectStorageConfig.name"
+                      value: "${var.thanosObjectStorageConfigName}"
+                    - name: "prometheus.thanosService.enabled"
+                      value: "${each.value.thanosSidecar}"
+                    - name: "prometheus.thanosServiceMonitor.enabled"
+                      value: "${each.value.thanosSidecar}"
+                    - name: "prometheus.thanosServiceMonitor.interval"
+                      value: "${var.thanosServiceMonitorInterval}"
             syncPolicy:
                 syncOptions:
                 - "CreateNamespace=true"

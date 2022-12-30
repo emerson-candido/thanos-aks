@@ -6,7 +6,8 @@ aks = {
         nodePoolCount  = "1",
         nodePoolName   = "default",
         nodePoolVmSize = "Standard_D2_v2",
-        prometheus     = true
+        prometheus     = true,
+        thanosSidecar  = true 
     }, 
     "prometheus1" = {
         argocd         = false
@@ -15,7 +16,8 @@ aks = {
         nodePoolCount  = "1",
         nodePoolName   = "default",
         nodePoolVmSize = "Standard_D2_v2",
-        prometheus     = true
+        prometheus     = true,
+        thanosSidecar  = true 
     }
 }
 
